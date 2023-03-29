@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:delivery_design/on_process_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -151,14 +152,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                                 Container(
                                   padding: EdgeInsets.fromLTRB(25, 15, 25, 15),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(25),
+                                    color: Colors.white,
+                                  ),
                                   child: Icon(
                                     Icons.search,
                                     color: Colors.black,
                                     size: 30,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(25),
-                                    color: Colors.white,
                                   ),
                                 )
                               ],
@@ -230,22 +231,33 @@ class _MyHomePageState extends State<MyHomePage> {
                             SizedBox(
                               height: 20,
                             ),
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 30,
-                                vertical: 10,
+                            ElevatedButton(
+                              style: ButtonStyle(
+                                fixedSize: MaterialStatePropertyAll(
+                                  Size(133, 40),
+                                ),
+                                backgroundColor: MaterialStatePropertyAll(
+                                  Color.fromARGB(255, 116, 94, 239),
+                                ),
+                                overlayColor: MaterialStatePropertyAll(
+                                  Color.fromARGB(255, 145, 133, 217),
+                                ),
                               ),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Color.fromARGB(255, 116, 94, 239),
-                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const OnProcessPage(),
+                                  ),
+                                );
+                              },
                               child: Text(
                                 'On process',
                                 style: TextStyle(
                                   color: Colors.white,
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -396,7 +408,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 30,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CircleAvatar(
                         backgroundColor: Colors.blueAccent,
@@ -411,16 +422,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         width: 15,
                       ),
                       Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 70,
-                          vertical: 10,
-                        ),
+                        padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(40),
                           border: Border.all(color: Colors.grey.shade100),
                           color: Colors.white,
                         ),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Icon(
                               Icons.do_not_disturb_on_total_silence_outlined,
@@ -428,7 +437,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               color: Colors.grey,
                             ),
                             SizedBox(
-                              width: 20,
+                              width: 55,
                             ),
                             Icon(
                               Icons.messenger_outline_rounded,
@@ -436,7 +445,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               color: Colors.grey,
                             ),
                             SizedBox(
-                              width: 20,
+                              width: 55,
                             ),
                             Icon(
                               Icons.notifications_outlined,
@@ -444,15 +453,12 @@ class _MyHomePageState extends State<MyHomePage> {
                               color: Colors.grey,
                             ),
                             SizedBox(
-                              width: 20,
+                              width: 55,
                             ),
                             Icon(
                               Icons.person_outline_outlined,
                               size: 40,
                               color: Colors.grey,
-                            ),
-                            SizedBox(
-                              width: 20,
                             ),
                           ],
                         ),
